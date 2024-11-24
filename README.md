@@ -1,3 +1,9 @@
+# Original code: 
+https://github.com/serizba/cppflow
+
+I needed modification to compile using mingw and include it in another project.
+
+
 # ![cppflow](docs/source/cppflow.svg)
 
 Run TensorFlow models in c++ without Bazel, without TensorFlow installation and without compiling Tensorflow. Perform tensor manipulation, use eager execution and run saved models directly from C++.
@@ -36,13 +42,10 @@ Since it uses TensorFlow 2 C API you just have to [download it](https://www.tens
 Afterwards, you can install the library:
 
 ```sh
-git clone git@github.com:serizba/cppflow.git
-cd cppflow/examples/load_model
-mkdir build
-cd build
-cmake ..
-make -j
-make install
+git clone https://github.com/enesdayangac/cppflow.git
+cd cppflow && mkdir build && cd build
+cmake -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH=<path to libtensorflow-cpu-windows-x86_64> ..
+mingw32-make
 ```
 
 Now you can check the [quickstart guide](https://serizba.github.io/cppflow/quickstart.html) to run a program using cppflow.
